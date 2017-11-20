@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alumnos>
+	<alumno>
+		<nombre>Juan Garcia</nombre>
+		<pais>RD</pais>
+		<movil>
+			<equipo>
+				<marca>iphone</marca>
+				<modelo>5S</modelo>
+			</equipo>
+		</movil>
+	</alumno>
+	<alumno>
+		<nombre>Jose Ribera</nombre>
+		<pais>RD</pais>
+		<movil>
+			<equipo>
+				<marca>Samsung</marca>
+				<modelo>Galaxy s6</modelo>
+			</equipo>
+			<equipo>
+				<marca>iphone</marca>
+				<modelo>6S</modelo>
+			</equipo>
+		</movil>
+	</alumno>
+</alumnos>

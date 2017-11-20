@@ -1,0 +1,81 @@
+<!Doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Json</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		.cuadro{
+			display: inline-block;
+			vertical-align: top;
+			width: 300px;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<center><img src="flickr.png" style="width:200px;margin-top:10px"></center>
+	<div class="form-inline" style="margin-top:20px;">
+		<img src="flickr.png" style="width:160px;">
+		<input type="text" class="form-control" id="b" style="height:50px; width:300px;margin-left:25%">
+		<input type="button" class="btn btn-primary"id="buscar" style="height:50px" value="Buscar">
+		<button class="btn btn-danger" onclick="prueba()" > prueba</button>
+	</div><br><hr>
+	<div id="imagenes"></div>
+	<script src="jquery-3.1.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#buscar").on("click", function(){
+				var texto= "";
+				var tag= $("#b").val();
+				$("#imagenes").text("cargando...");
+				$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+ tag +"&tagmode=any&format=json&jsoncallback=?", function(datos){
+					$.each(datos.items, function(i, item){
+						texto +="<div class='cuadro'>";
+						texto +="<img src='" + item.media.m +"'/>";
+						texto +="<p><strong style='color:#00BFFF'>titulo:</strong><small>"+ item.title +"</small></p>";
+						texto +="<p><a href='"+ item.link +"'>Link</a></p>";
+						texto +="</div>";
+					});
+				$("#imagenes").html(texto);
+				});
+			});
+		});
+		
+		function prueba(){
+				var texto= "";
+				var tag= $("#b").val();
+				$("#imagenes").text("cargando...");
+				$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+ tag +"&tagmode=any&format=json&jsoncallback=?", function(datos){
+					$.each(datos.items, function(i, item){
+						texto +="<div class='cuadro'>";
+						texto +="<img src='" + item.media.m +"'/>";
+						texto +="<p><strong style='color:#00BFFF'>titulo:</strong><small>"+ item.title +"</small></p>";
+						texto +="<p><a href='"+ item.link +"'>Link</a></p>";
+						texto +="</div>";
+					});
+				$("#imagenes").html(texto);
+				});
+			}
+	</script>
+	<style>
+	footer{
+		clear:both;
+		float:left;
+		margin-top:20px;
+		margin-bottom:10px;
+		box-sizing:border-box;
+		width:100%;
+		padding:20px;
+		color:#fff;
+		background:#4682B4;
+	}
+	p{
+		text-align: center;
+	}
+	</style>
+	<footer>
+			<p><a style="color:white"href="https://www.youtube.com/watch?v=7TMt6FItfv4">Video Tutorial</a></p>
+	</footer>
+</body>
+</html>

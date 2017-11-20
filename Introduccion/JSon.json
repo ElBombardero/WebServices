@@ -1,0 +1,29 @@
+{
+	"alumnos":[
+	{
+		"nombre":"Juan garcia",
+		"pais":"RD",
+		"Moviles":[
+			{
+				"marca":"iphone",
+				"modelo":"5S"
+			}
+		]
+	},
+	{
+		"nombre":"jose Ribera",
+		"pais":"PR",
+		"Moviles":[
+			{
+				"marca":"Samsung",
+				"modelo":"Galaxy s6"
+			},
+			{
+				"marca":"iphone",
+				"modelo":"6S"
+			}
+		]
+	}
+
+	]
+}
